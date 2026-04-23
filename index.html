@@ -11,11 +11,10 @@
       --text: #1f2937;
       --muted: #5b6472;
       --primary: #0f4c81;
-      --primary-2: #1d6fa5;
       --border: #dbe3ee;
       --accent: #e8f1fb;
       --shadow: 0 10px 30px rgba(15, 76, 129, 0.08);
-      --maxw: 1080px;
+      --maxw: 980px;
     }
 
     * { box-sizing: border-box; }
@@ -25,7 +24,7 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background: linear-gradient(180deg, #eef4fb 0%, var(--bg) 240px);
-      line-height: 1.65;
+      line-height: 1.68;
     }
 
     a { color: var(--primary); text-decoration: none; }
@@ -41,8 +40,8 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(10px);
-      background: rgba(247, 249, 252, 0.88);
-      border-bottom: 1px solid rgba(219, 227, 238, 0.9);
+      background: rgba(247, 249, 252, 0.9);
+      border-bottom: 1px solid rgba(219, 227, 238, 0.95);
     }
 
     .nav-inner {
@@ -74,7 +73,7 @@
     }
 
     .hero {
-      padding: 68px 0 36px;
+      padding: 64px 0 30px;
     }
 
     .hero-card {
@@ -99,13 +98,13 @@
 
     h1 {
       margin: 0 0 12px;
-      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
       line-height: 1.15;
       color: #15324d;
     }
 
     .subtitle {
-      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
       color: var(--muted);
       max-width: 820px;
       margin-bottom: 24px;
@@ -165,24 +164,26 @@
     }
 
     .section-title {
-      font-size: 1.8rem;
+      font-size: 1.85rem;
       margin: 0 0 14px;
       color: #173552;
     }
 
     .section-desc {
       color: var(--muted);
-      max-width: 850px;
       margin-bottom: 20px;
     }
 
-    .grid {
+    .stack {
       display: grid;
       gap: 18px;
     }
 
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-2 {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
     .card {
       background: var(--card);
@@ -194,15 +195,15 @@
 
     .card h3 {
       margin-top: 0;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: #18324b;
-      font-size: 1.15rem;
+      font-size: 1.16rem;
     }
 
     .muted { color: var(--muted); }
 
     ul.clean {
-      padding-left: 18px;
+      padding-left: 22px;
       margin: 0;
     }
 
@@ -227,12 +228,11 @@
     .date-item span { color: var(--muted); font-weight: 600; }
 
     .people-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 18px;
       margin: 0;
-      padding-left: 18px;
+      padding-left: 22px;
     }
+
+    .people-list li { margin: 7px 0; }
 
     .footer {
       padding: 34px 0 48px;
@@ -250,7 +250,7 @@
     }
 
     @media (max-width: 860px) {
-      .grid-2, .grid-3, .people-list { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
       .hero-card { padding: 28px; }
       .date-item { flex-direction: column; }
       .nav-inner { align-items: flex-start; padding: 12px 0; }
@@ -276,7 +276,7 @@
   <header class="hero">
     <div class="container">
       <div class="hero-card">
-        <div class="eyebrow">ICDM 2026 Workshop</div>
+        <div class="eyebrow">ICDM 2026 Half-Day Workshop</div>
         <h1>Human Dynamics and Mobility Analytics in Agentic AI Era</h1>
         <div class="subtitle">
           HDMA 2026 brings together researchers and practitioners working on human mobility,
@@ -284,8 +284,8 @@
         </div>
         <div class="hero-meta">
           <div class="pill">Workshop Abbreviation: HDMA 2026</div>
-          <div class="pill">Format: Half-day or Full-day</div>
-          <div class="pill">Location: ICDM 2026</div>
+          <div class="pill">Format: Half-day Workshop</div>
+          <div class="pill">Venue: ICDM 2026</div>
         </div>
         <div class="cta-row">
           <a class="btn btn-primary" href="#cfp">View Call for Papers</a>
@@ -300,25 +300,16 @@
       <h2 class="section-title">Overview</h2>
       <p class="section-desc">
         Human mobility data, together with broader human behavioral data generated from online platforms
-        and human–AI interactions, provide rich signals for understanding human dynamics in physical and
-        digital environments. HDMA 2026 focuses on the intersection of human dynamics analytics and
-        emerging agentic AI paradigms, with the goal of advancing modeling, reasoning, decision-making,
-        and real-world applications in this area.
+        and human–AI interactions, provide rich signals for understanding human dynamics in both physical
+        and digital environments. HDMA 2026 aims to provide a focused forum for discussing recent advances,
+        open challenges, and practical applications at the intersection of human dynamics analytics,
+        spatio-temporal intelligence, and agentic AI.
       </p>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Research Focus</h3>
-          <p class="muted">Human mobility, human behavior modeling, urban computing, spatio-temporal intelligence, and AI systems.</p>
-        </div>
-        <div class="card">
-          <h3>Why Now</h3>
-          <p class="muted">Large models and agentic AI create new opportunities for adaptive reasoning over complex human-centered data.</p>
-        </div>
-        <div class="card">
-          <h3>Workshop Goal</h3>
-          <p class="muted">Build a forum for discussing recent advances, open challenges, and real-world applications.</p>
-        </div>
-      </div>
+      <p class="section-desc">
+        The workshop will be organized as a half-day event at ICDM 2026. It is intended to bring together
+        researchers from data mining, machine learning, urban computing, and related communities to exchange
+        ideas on modeling, reasoning, and decision-making over complex human-centered data.
+      </p>
     </section>
 
     <section id="cfp">
@@ -327,7 +318,18 @@
         We invite original research contributions that advance the understanding, modeling, and utilization of
         human mobility data and broader human dynamics in the emerging landscape of large models and agentic AI.
       </p>
-      <div class="grid grid-2">
+
+      <div class="stack">
+        <div class="card">
+          <h3>Objectives and Goals</h3>
+          <ul class="clean">
+            <li>Bring together researchers and practitioners working on human mobility, broader human dynamics, and agentic AI.</li>
+            <li>Promote discussion on new methodologies, systems, and applications for analyzing complex human-centered data.</li>
+            <li>Highlight opportunities and open challenges in combining spatio-temporal data mining with large models and agentic reasoning.</li>
+            <li>Foster interdisciplinary exchange across data mining, machine learning, urban computing, and geospatial analytics.</li>
+          </ul>
+        </div>
+
         <div class="card">
           <h3>Topics of Interest</h3>
           <ul class="clean">
@@ -344,13 +346,22 @@
             <li>Applications in health, smart cities, transportation, workplaces, education, disaster response, and online platforms</li>
           </ul>
         </div>
+
         <div class="card">
-          <h3>Submission Information</h3>
+          <h3>Submission Guidelines</h3>
           <p class="muted">
-            Submission details, paper format, and the official submission link will be announced here after the workshop page is finalized.
+            We currently plan to follow the standard ICDM-style paper preparation format. Authors should prepare
+            manuscripts in English using the IEEE two-column conference template. A submission should be a single PDF file.
           </p>
-          <div class="notice">
-            Placeholder: add the official submission system link, formatting instructions, and proceedings policy here later.
+          <ul class="clean">
+            <li><strong>Template:</strong> IEEE conference two-column format.</li>
+            <li><strong>Length:</strong> up to 10 pages, including references and any appendix.</li>
+            <li><strong>Originality:</strong> submissions should present original, unpublished work that is not under review elsewhere.</li>
+            <li><strong>Submission system:</strong> the official submission link will be announced after the ICDM 2026 workshop system is opened.</li>
+            <li><strong>Final note:</strong> the final submission policy will follow the official ICDM 2026 workshop instructions once released.</li>
+          </ul>
+          <div class="notice" style="margin-top:14px;">
+            Placeholder: replace this block later with the official ICDM 2026 workshop submission link, deadlines, and any workshop-specific review policy.
           </div>
         </div>
       </div>
@@ -372,10 +383,10 @@
     <section id="program">
       <h2 class="section-title">Program</h2>
       <p class="section-desc">
-        The workshop is planned as a half-day or full-day event featuring keynote talks, paper presentation sessions,
+        HDMA 2026 is planned as a half-day workshop featuring invited keynote talks, paper presentation sessions,
         and a panel discussion on emerging challenges and future directions in human dynamics data intelligence and agentic AI.
       </p>
-      <div class="grid grid-2">
+      <div class="stack">
         <div class="card">
           <h3>Planned Components</h3>
           <ul class="clean">
@@ -415,26 +426,9 @@
       </div>
     </section>
 
-    <section>
-      <h2 class="section-title">Program Committee</h2>
-      <div class="card">
-        <ul class="clean">
-          <li>Gao Cong, Nanyang Technological University, Singapore</li>
-          <li>Cecilia Mascolo, University of Cambridge, UK</li>
-          <li>Bin Yang, East China Normal University, China</li>
-          <li>Flora Salim, University of New South Wales, Australia</li>
-          <li>Torben Bach Pedersen, Aalborg University, Denmark</li>
-          <li>Claudio T. Silva, New York University, USA</li>
-          <li>Daniele Quercia, Bell Labs, Cambridge, UK</li>
-          <li>Raymond Wong, The Hong Kong University of Science and Technology, Hong Kong</li>
-          <li>Jie Bao, JD Technology, China</li>
-        </ul>
-      </div>
-    </section>
-
     <section id="contact">
       <h2 class="section-title">Contact</h2>
-      <div class="grid grid-2">
+      <div class="grid-2">
         <div class="card">
           <h3>General Contact</h3>
           <p class="muted">For workshop-related inquiries, please contact:</p>
@@ -442,7 +436,7 @@
         </div>
         <div class="card">
           <h3>Website Notes</h3>
-          <p class="muted">This website will be updated with submission links, deadlines, accepted papers, and the final workshop schedule once available.</p>
+          <p class="muted">This website will be updated with the official submission link, final deadlines, accepted papers, and the detailed workshop schedule once available.</p>
         </div>
       </div>
     </section>
