@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0b2e59"></rect>
+
+  <!-- HD monogram -->
+  <path d="M16 18V46M16 32H28M28 18V46" stroke="#ffffff" stroke-width="5" stroke-linecap="round"></path>
+  <path d="M36 18V46M36 18H43C49 18 53 22 53 32C53 42 49 46 43 46H36" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- subtle AI/network accent -->
+  <circle cx="49" cy="15" r="3" fill="#57c7ff"></circle>
+  <circle cx="56" cy="22" r="2.2" fill="#57c7ff"></circle>
+  <line x1="49" y1="15" x2="56" y2="22" stroke="#57c7ff" stroke-width="1.8" stroke-linecap="round"></line>
+  <line x1="46" y1="24" x2="49" y2="15" stroke="#57c7ff" stroke-width="1.8" stroke-linecap="round" opacity="0.9"></line>
+</svg>
