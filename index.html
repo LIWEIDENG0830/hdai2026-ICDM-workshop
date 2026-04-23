@@ -6,15 +6,17 @@
   <title>HDMA 2026 | ICDM 2026 Workshop</title>
   <style>
     :root {
-      --bg: #f7f9fc;
+      --navy: #0c345a;
+      --navy-2: #123f6b;
+      --blue: #2a73c5;
+      --blue-soft: #e9f1fb;
+      --text: #203040;
+      --muted: #5f6f82;
+      --border: #d8e3ef;
+      --bg: #f4f8fc;
       --card: #ffffff;
-      --text: #1f2937;
-      --muted: #5b6472;
-      --primary: #0f4c81;
-      --border: #dbe3ee;
-      --accent: #e8f1fb;
-      --shadow: 0 10px 30px rgba(15, 76, 129, 0.08);
-      --maxw: 980px;
+      --shadow: 0 12px 28px rgba(10, 40, 80, 0.08);
+      --maxw: 1200px;
     }
 
     * { box-sizing: border-box; }
@@ -23,316 +25,543 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, #eef4fb 0%, var(--bg) 240px);
-      line-height: 1.68;
+      background: var(--bg);
+      line-height: 1.7;
     }
 
-    a { color: var(--primary); text-decoration: none; }
+    a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     .container {
-      width: min(calc(100% - 32px), var(--maxw));
+      width: min(calc(100% - 40px), var(--maxw));
       margin: 0 auto;
     }
 
-    .nav {
+    .topbar {
+      background: var(--navy);
+      color: white;
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(247, 249, 252, 0.9);
-      border-bottom: 1px solid rgba(219, 227, 238, 0.95);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
-    .nav-inner {
+    .topbar-inner {
+      min-height: 82px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      min-height: 66px;
+      gap: 20px;
     }
 
     .brand {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--primary);
-      letter-spacing: 0.02em;
-      white-space: nowrap;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-subtitle {
+      font-size: 0.92rem;
+      opacity: 0.95;
+      margin-top: 4px;
+      font-weight: 600;
     }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      font-size: 0.96rem;
+      gap: 22px;
+      align-items: center;
     }
 
     .nav-links a {
-      color: var(--muted);
+      color: rgba(255,255,255,0.95);
       font-weight: 600;
+      font-size: 0.97rem;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-links a:hover { text-decoration: none; }
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 3px;
+      border-radius: 999px;
+      background: white;
     }
 
     .hero {
-      padding: 64px 0 30px;
+      background: linear-gradient(180deg, #eef4fb 0%, #f8fbff 100%);
+      border-bottom: 1px solid var(--border);
     }
 
-    .hero-card {
-      background: linear-gradient(135deg, #ffffff 0%, #f5faff 100%);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: 40px;
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+      padding: 36px 0 42px;
     }
 
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: var(--primary);
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      margin-bottom: 18px;
-    }
-
-    h1 {
+    .hero h1 {
       margin: 0 0 12px;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.15;
-      color: #15324d;
+      color: #173a5f;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      max-width: 620px;
     }
 
-    .subtitle {
-      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
-      color: var(--muted);
-      max-width: 820px;
-      margin-bottom: 24px;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
       gap: 12px;
-      margin: 18px 0 28px;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin: 6px 0 16px;
     }
 
-    .pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
+    .hero-tag::before {
+      content: "";
+      width: 44px;
+      height: 2px;
+      background: #6ea5e8;
       display: inline-block;
-      padding: 12px 18px;
-      border-radius: 12px;
-      font-weight: 700;
-      border: 1px solid var(--border);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border-radius: 999px;
     }
 
-    .btn:hover {
-      text-decoration: none;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    .hero p {
+      font-size: 1.06rem;
+      color: #31475e;
+      max-width: 650px;
+      margin: 0;
     }
 
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
+    .hero-visual {
+      min-height: 320px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      background: radial-gradient(circle at 20% 20%, rgba(74, 141, 230, 0.12), transparent 35%),
+                  linear-gradient(180deg, #f7fbff 0%, #eef5fd 100%);
     }
 
-    .btn-secondary {
+    .building, .marker, .tree, .person, .path-line {
+      position: absolute;
+    }
+
+    .building {
+      bottom: 72px;
+      width: 54px;
+      background: linear-gradient(180deg, #dbe8f8 0%, #cdddf1 100%);
+      border-radius: 8px 8px 0 0;
+      opacity: 0.95;
+    }
+
+    .building::before {
+      content: "";
+      position: absolute;
+      inset: 10px 12px 12px;
+      background: repeating-linear-gradient(
+        to right,
+        rgba(255,255,255,0.42) 0 5px,
+        transparent 5px 10px
+      );
+      opacity: 0.8;
+    }
+
+    .b1 { left: 70px; height: 120px; }
+    .b2 { left: 145px; height: 170px; }
+    .b3 { left: 235px; height: 250px; width: 72px; }
+    .b4 { left: 325px; height: 150px; }
+    .b5 { left: 405px; height: 110px; }
+
+    .ground {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 92px;
+      background: linear-gradient(180deg, rgba(198,220,245,0.15), rgba(199,220,245,0.35));
+      border-top: 1px solid rgba(171, 198, 228, 0.3);
+    }
+
+    .tree {
+      bottom: 63px;
+      width: 16px;
+      height: 34px;
+      background: #c9d9ee;
+      border-radius: 12px 12px 4px 4px;
+    }
+
+    .tree::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      bottom: -10px;
+      width: 2px;
+      height: 12px;
+      background: #b7c8de;
+    }
+
+    .t1 { left: 110px; }
+    .t2 { left: 190px; }
+    .t3 { left: 280px; }
+    .t4 { left: 365px; }
+    .t5 { left: 455px; }
+
+    .person {
+      bottom: 52px;
+      width: 10px;
+      height: 24px;
+      background: #9fb9df;
+      border-radius: 5px;
+      opacity: 0.95;
+      transform: skew(-8deg);
+    }
+
+    .person::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 1px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #a7c0e3;
+    }
+
+    .p1 { left: 82px; }
+    .p2 { left: 218px; }
+    .p3 { left: 338px; }
+    .p4 { left: 488px; }
+
+    .path-line {
+      border: 2px dashed #a9c7ef;
+      border-color: #a9c7ef transparent transparent transparent;
+      border-radius: 50%/100% 100% 0 0;
+      opacity: 0.9;
+    }
+
+    .path1 {
+      width: 220px;
+      height: 90px;
+      left: 48px;
+      bottom: 30px;
+      transform: rotate(-8deg);
+    }
+
+    .path2 {
+      width: 290px;
+      height: 118px;
+      left: 190px;
+      bottom: 32px;
+      transform: rotate(6deg);
+    }
+
+    .path3 {
+      width: 180px;
+      height: 76px;
+      left: 380px;
+      bottom: 56px;
+      transform: rotate(-10deg);
+    }
+
+    .marker {
+      width: 26px;
+      height: 26px;
+      background: var(--blue);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      box-shadow: 0 10px 18px rgba(42, 115, 197, 0.25);
+    }
+
+    .marker::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      left: 8px;
+      top: 8px;
       background: white;
-      color: var(--primary);
+      border-radius: 50%;
     }
 
-    section {
-      padding: 22px 0;
+    .m1 { left: 160px; top: 70px; }
+    .m2 { left: 304px; top: 36px; }
+    .m3 { left: 520px; top: 116px; }
+
+    .section {
+      padding: 34px 0 10px;
     }
 
     .section-title {
-      font-size: 1.85rem;
-      margin: 0 0 14px;
-      color: #173552;
+      color: #163a61;
+      font-size: 1.95rem;
+      margin: 0 0 10px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
-    .section-desc {
+    .icon-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .icon-title .icon {
+      color: var(--blue);
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .section-lead {
       color: var(--muted);
-      margin-bottom: 20px;
+      font-size: 1.02rem;
+      margin: 0 0 18px;
+      max-width: 1000px;
+    }
+
+    .divider {
+      border-top: 1px solid var(--border);
+      margin: 10px 0 0;
     }
 
     .stack {
-      display: grid;
-      gap: 18px;
-    }
-
-    .grid-2 {
-      display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
     .card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 20px;
+      padding: 24px 28px;
       box-shadow: var(--shadow);
-      padding: 24px;
     }
 
     .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: #18324b;
-      font-size: 1.16rem;
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+      color: #173a60;
     }
 
-    .muted { color: var(--muted); }
+    .card p:last-child { margin-bottom: 0; }
 
-    ul.clean {
-      padding-left: 22px;
-      margin: 0;
+    .subsection-title {
+      color: #16539c;
+      font-size: 1.28rem;
+      margin: 0 0 10px;
+      font-weight: 800;
     }
 
-    ul.clean li { margin: 8px 0; }
-
-    .date-list {
-      display: grid;
-      gap: 10px;
+    .subsection + .subsection {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #e4edf7;
     }
 
-    .date-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 16px;
-      border-radius: 14px;
+    ul {
+      margin: 8px 0 0;
+      padding-left: 24px;
+    }
+
+    li { margin: 7px 0; }
+
+    .date-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 16px;
       border: 1px solid var(--border);
-      background: #fbfdff;
+      background: white;
     }
 
-    .date-item strong { color: #16314c; }
-    .date-item span { color: var(--muted); font-weight: 600; }
-
-    .people-list {
-      margin: 0;
-      padding-left: 22px;
+    .date-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e8eef6;
     }
 
-    .people-list li { margin: 7px 0; }
+    .date-table tr:last-child td { border-bottom: none; }
+    .date-table td:last-child {
+      width: 34%;
+      color: #42556b;
+      font-weight: 700;
+    }
+
+    .muted-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    .organizer-line {
+      font-size: 1.03rem;
+      font-weight: 700;
+      color: #24384f;
+      line-height: 1.85;
+    }
+
+    .org-aff {
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    .contact-box {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 24px;
+      box-shadow: var(--shadow);
+    }
 
     .footer {
-      padding: 34px 0 48px;
+      padding: 30px 0 48px;
       color: var(--muted);
       font-size: 0.95rem;
     }
 
-    .notice {
-      background: #fff8e8;
-      border: 1px solid #f0deb0;
-      color: #70591a;
-      padding: 14px 16px;
-      border-radius: 14px;
-      font-size: 0.95rem;
+    @media (max-width: 980px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual {
+        min-height: 260px;
+      }
     }
 
-    @media (max-width: 860px) {
-      .grid-2 { grid-template-columns: 1fr; }
-      .hero-card { padding: 28px; }
-      .date-item { flex-direction: column; }
-      .nav-inner { align-items: flex-start; padding: 12px 0; }
-      .nav-links { gap: 10px 12px; }
+    @media (max-width: 760px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+      .nav-links {
+        gap: 14px;
+      }
+      .nav-links a.active::after,
+      .nav-links a:hover::after {
+        bottom: -4px;
+      }
+      .hero-inner {
+        padding-top: 26px;
+      }
+      .container {
+        width: min(calc(100% - 24px), var(--maxw));
+      }
+      .card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand">HDMA 2026</div>
-      <div class="nav-links">
-        <a href="#overview">Overview</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-title">HDMA 2026</div>
+        <div class="brand-subtitle">Workshop at ICDM 2026</div>
+      </div>
+      <nav class="nav-links">
+        <a class="active" href="#home">Home</a>
         <a href="#cfp">Call for Papers</a>
         <a href="#dates">Important Dates</a>
         <a href="#program">Program</a>
         <a href="#organizers">Organizers</a>
         <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="hero">
-    <div class="container">
-      <div class="hero-card">
-        <div class="eyebrow">ICDM 2026 Half-Day Workshop</div>
-        <h1>Human Dynamics and Mobility Analytics in Agentic AI Era</h1>
-        <div class="subtitle">
-          HDMA 2026 brings together researchers and practitioners working on human mobility,
-          broader human dynamics, spatio-temporal data intelligence, and agentic AI systems.
-        </div>
-        <div class="hero-meta">
-          <div class="pill">Workshop Abbreviation: HDMA 2026</div>
-          <div class="pill">Format: Half-day Workshop</div>
-          <div class="pill">Venue: ICDM 2026</div>
-        </div>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#cfp">View Call for Papers</a>
-          <a class="btn btn-secondary" href="#contact">Contact Us</a>
-        </div>
-      </div>
+      </nav>
     </div>
   </header>
 
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <div>
+        <h1>Human Dynamics and<br>Mobility Analytics in<br>Agentic AI Era</h1>
+        <div class="hero-tag">A Half-Day Workshop at ICDM 2026</div>
+        <p>
+          HDMA 2026 aims to bring together researchers and practitioners from data mining,
+          machine learning, urban computing, and geospatial analytics to discuss recent advances,
+          open challenges, and real-world applications for human dynamics and mobility analytics
+          in the era of agentic AI.
+        </p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="building b1"></div>
+        <div class="building b2"></div>
+        <div class="building b3"></div>
+        <div class="building b4"></div>
+        <div class="building b5"></div>
+        <div class="tree t1"></div>
+        <div class="tree t2"></div>
+        <div class="tree t3"></div>
+        <div class="tree t4"></div>
+        <div class="tree t5"></div>
+        <div class="person p1"></div>
+        <div class="person p2"></div>
+        <div class="person p3"></div>
+        <div class="person p4"></div>
+        <div class="path-line path1"></div>
+        <div class="path-line path2"></div>
+        <div class="path-line path3"></div>
+        <div class="marker m1"></div>
+        <div class="marker m2"></div>
+        <div class="marker m3"></div>
+        <div class="ground"></div>
+      </div>
+    </div>
+  </section>
+
   <main class="container">
-    <section id="overview">
-      <h2 class="section-title">Overview</h2>
-      <p class="section-desc">
-        Human mobility data, together with broader human behavioral data generated from online platforms
-        and human–AI interactions, provide rich signals for understanding human dynamics in both physical
-        and digital environments. HDMA 2026 aims to provide a focused forum for discussing recent advances,
-        open challenges, and practical applications at the intersection of human dynamics analytics,
-        spatio-temporal intelligence, and agentic AI.
+    <section class="section" id="overview">
+      <div class="icon-title">
+        <div class="icon">📖</div>
+        <h2 class="section-title">Overview</h2>
+      </div>
+      <p class="section-lead">
+        Human mobility data, together with broader human behavioral data generated from online platforms and human–AI interactions,
+        provide rich signals for understanding human dynamics in physical and digital environments. Recent advances in large models and
+        agentic AI create new opportunities for modeling, reasoning, and decision-making over complex human-centered data. HDMA 2026
+        focuses on this intersection and aims to build a focused forum for recent advances, open challenges, and real-world applications.
       </p>
-      <p class="section-desc">
-        The workshop will be organized as a half-day event at ICDM 2026. It is intended to bring together
-        researchers from data mining, machine learning, urban computing, and related communities to exchange
-        ideas on modeling, reasoning, and decision-making over complex human-centered data.
-      </p>
+      <div class="divider"></div>
     </section>
 
-    <section id="cfp">
-      <h2 class="section-title">Call for Papers</h2>
-      <p class="section-desc">
-        We invite original research contributions that advance the understanding, modeling, and utilization of
-        human mobility data and broader human dynamics in the emerging landscape of large models and agentic AI.
+    <section class="section" id="cfp">
+      <div class="icon-title">
+        <div class="icon">📣</div>
+        <h2 class="section-title">Call for Papers</h2>
+      </div>
+      <p class="section-lead">
+        We invite original research contributions on human mobility, broader human dynamics, and intelligent analysis systems in the era of agentic AI.
       </p>
-
       <div class="stack">
-        <div class="card">
-          <h3>Objectives and Goals</h3>
-          <ul class="clean">
-            <li>Bring together researchers and practitioners working on human mobility, broader human dynamics, and agentic AI.</li>
-            <li>Promote discussion on new methodologies, systems, and applications for analyzing complex human-centered data.</li>
-            <li>Highlight opportunities and open challenges in combining spatio-temporal data mining with large models and agentic reasoning.</li>
-            <li>Foster interdisciplinary exchange across data mining, machine learning, urban computing, and geospatial analytics.</li>
-          </ul>
+        <div class="card subsection">
+          <h3 class="subsection-title">Objectives and Goals</h3>
+          <p>
+            The workshop aims to foster discussion on emerging theories, methods, systems, and applications at the intersection of human dynamics analytics
+            and agentic AI. In particular, it seeks to connect researchers across data mining, machine learning, urban computing, and related areas;
+            identify open challenges and future research directions; encourage interaction between academia and industry; and promote real-world applications
+            that leverage human-centered data intelligence.
+          </p>
         </div>
 
-        <div class="card">
-          <h3>Topics of Interest</h3>
-          <ul class="clean">
+        <div class="card subsection">
+          <h3 class="subsection-title">Topics of Interest</h3>
+          <ul>
             <li>Modeling and understanding of human mobility</li>
             <li>Mobility forecasting and anomaly detection</li>
             <li>Multi-agent simulation of mobility, interaction, diffusion, coordination, and population dynamics</li>
@@ -347,105 +576,82 @@
           </ul>
         </div>
 
-        <div class="card">
-          <h3>Submission Guidelines</h3>
-          <p class="muted">
-            We currently plan to follow the standard ICDM-style paper preparation format. Authors should prepare
-            manuscripts in English using the IEEE two-column conference template. A submission should be a single PDF file.
+        <div class="card subsection">
+          <h3 class="subsection-title">Submission Guidelines</h3>
+          <p>
+            Authors are invited to submit original, unpublished research papers. All submissions will be peer-reviewed. The workshop submission format is intended
+            to follow the usual ICDM workshop practice; please update this section once the official ICDM 2026 workshop instructions are released.
           </p>
-          <ul class="clean">
-            <li><strong>Template:</strong> IEEE conference two-column format.</li>
-            <li><strong>Length:</strong> up to 10 pages, including references and any appendix.</li>
-            <li><strong>Originality:</strong> submissions should present original, unpublished work that is not under review elsewhere.</li>
-            <li><strong>Submission system:</strong> the official submission link will be announced after the ICDM 2026 workshop system is opened.</li>
-            <li><strong>Final note:</strong> the final submission policy will follow the official ICDM 2026 workshop instructions once released.</li>
+          <ul>
+            <li><strong>Paper length:</strong> up to 6 pages for full papers, and up to 4 pages for short papers, including figures, tables, and references.</li>
+            <li><strong>Formatting:</strong> manuscripts should use the official IEEE conference template in two-column format.</li>
+            <li><strong>Submission file:</strong> papers should be submitted as a PDF file through the official workshop submission system.</li>
+            <li><strong>Originality:</strong> submissions must describe original work that is not under review by another venue.</li>
+            <li><strong>Presentation:</strong> at least one author of each accepted paper is expected to register and present the work at the workshop.</li>
+            <li><strong>Final policy:</strong> the definitive page limits, template details, and proceedings policy should follow the official ICDM 2026 workshop announcement.</li>
           </ul>
-          <div class="notice" style="margin-top:14px;">
-            Placeholder: replace this block later with the official ICDM 2026 workshop submission link, deadlines, and any workshop-specific review policy.
-          </div>
         </div>
       </div>
     </section>
 
-    <section id="dates">
-      <h2 class="section-title">Important Dates</h2>
-      <p class="section-desc">The dates below are placeholders for now. Replace them once ICDM 2026 workshop deadlines are finalized.</p>
-      <div class="card">
-        <div class="date-list">
-          <div class="date-item"><strong>Paper Submission Deadline</strong><span>TBD</span></div>
-          <div class="date-item"><strong>Notification of Acceptance</strong><span>TBD</span></div>
-          <div class="date-item"><strong>Camera-Ready Deadline</strong><span>TBD</span></div>
-          <div class="date-item"><strong>Workshop Date</strong><span>TBD</span></div>
-        </div>
+    <section class="section" id="dates">
+      <div class="icon-title">
+        <div class="icon">🗓️</div>
+        <h2 class="section-title">Important Dates</h2>
       </div>
+      <table class="date-table">
+        <tr><td>Paper Submission Due</td><td>TBD</td></tr>
+        <tr><td>Notification of Acceptance</td><td>TBD</td></tr>
+        <tr><td>Camera-Ready Due</td><td>TBD</td></tr>
+        <tr><td>Workshop Date</td><td>TBD (ICDM 2026)</td></tr>
+      </table>
+      <div class="muted-note">All deadlines are AoE (Anywhere on Earth).</div>
     </section>
 
-    <section id="program">
-      <h2 class="section-title">Program</h2>
-      <p class="section-desc">
-        HDMA 2026 is planned as a half-day workshop featuring invited keynote talks, paper presentation sessions,
-        and a panel discussion on emerging challenges and future directions in human dynamics data intelligence and agentic AI.
+    <section class="section" id="program">
+      <div class="icon-title">
+        <div class="icon">👥</div>
+        <h2 class="section-title">Workshop Format</h2>
+      </div>
+      <p class="section-lead">
+        HDMA 2026 is a half-day workshop. The program is expected to include invited keynote talks from leading researchers, paper presentation sessions,
+        and a panel discussion focusing on emerging challenges and future research directions in human dynamics data intelligence and agentic AI.
       </p>
-      <div class="stack">
-        <div class="card">
-          <h3>Planned Components</h3>
-          <ul class="clean">
-            <li>Invited keynote talks from leading researchers</li>
-            <li>Peer-reviewed paper presentation sessions</li>
-            <li>Panel discussion with academia and industry participants</li>
-          </ul>
+      <div class="divider"></div>
+    </section>
+
+    <section class="section" id="organizers">
+      <div class="icon-title">
+        <div class="icon">👥</div>
+        <h2 class="section-title">Organizers</h2>
+      </div>
+      <div class="contact-box">
+        <div class="organizer-line">
+          Liwei Deng<sup>1</sup>, Jiaxing Shen<sup>2</sup>, Hao Miao<sup>3</sup>, Yu Yang<sup>4</sup>, Yan Zhao<sup>5</sup>, Tianfu Wang<sup>6</sup>, Elliott Wen<sup>7</sup>,
+          Huan Li<sup>8</sup>, Xin Li<sup>9</sup>, Fuliang Li<sup>10</sup>, Kai Zheng<sup>5</sup>
         </div>
-        <div class="card">
-          <h3>Potential Keynote Speakers</h3>
-          <ul class="clean">
-            <li>Christian S. Jensen, Aalborg University, Denmark</li>
-            <li>Hui Xiong, The Hong Kong University of Science and Technology, China</li>
-            <li>Yu Zheng, JD Technology, China</li>
-          </ul>
+        <div class="org-aff">
+          <sup>1</sup> Aalborg University, <sup>2</sup> Lingnan University, <sup>3</sup> The Hong Kong Polytechnic University,
+          <sup>4</sup> The Education University of Hong Kong, <sup>5</sup> University of Electronic Science and Technology of China,
+          <sup>6</sup> The Hong Kong University of Science and Technology (Guangzhou), <sup>7</sup> University of Auckland,
+          <sup>8</sup> Zhejiang University, <sup>9</sup> University of Science and Technology of China, <sup>10</sup> Northeastern University
         </div>
       </div>
     </section>
 
-    <section id="organizers">
-      <h2 class="section-title">Organizers</h2>
-      <p class="section-desc">HDMA 2026 is organized by researchers from academia and industry with expertise in human dynamics, mobility data mining, urban computing, machine learning, and related areas.</p>
-      <div class="card">
-        <ol class="people-list">
-          <li>Liwei Deng, Aalborg University</li>
-          <li>Jiaxing Shen, Lingnan University</li>
-          <li>Hao Miao, The Hong Kong Polytechnic University</li>
-          <li>Yu Yang, The Education University of Hong Kong</li>
-          <li>Yan Zhao, University of Electronic Science and Technology of China</li>
-          <li>Tianfu Wang, The Hong Kong University of Science and Technology (Guangzhou)</li>
-          <li>Elliott Wen, University of Auckland</li>
-          <li>Huan Li, Zhejiang University</li>
-          <li>Xin Li, University of Science and Technology of China</li>
-          <li>Fuliang Li, Northeastern University</li>
-          <li>Kai Zheng, University of Electronic Science and Technology of China</li>
-        </ol>
+    <section class="section" id="contact">
+      <div class="icon-title">
+        <div class="icon">✉️</div>
+        <h2 class="section-title">Contact</h2>
       </div>
-    </section>
-
-    <section id="contact">
-      <h2 class="section-title">Contact</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>General Contact</h3>
-          <p class="muted">For workshop-related inquiries, please contact:</p>
-          <p><strong>Email:</strong> <a href="mailto:lide@cs.aau.dk">lide@cs.aau.dk</a></p>
-        </div>
-        <div class="card">
-          <h3>Website Notes</h3>
-          <p class="muted">This website will be updated with the official submission link, final deadlines, accepted papers, and the detailed workshop schedule once available.</p>
-        </div>
+      <div class="contact-box">
+        For inquiries, please contact: <a href="mailto:lide@cs.aau.dk">lide@cs.aau.dk</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div>© 2026 HDMA Workshop. Built for ICDM 2026.</div>
-    </div>
+    <div class="container">© 2026 HDMA Workshop. Built for ICDM 2026.</div>
   </footer>
 </body>
 </html>
