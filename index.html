@@ -19,7 +19,7 @@
       --bg: #f4f8fc;
       --card: #ffffff;
       --shadow: 0 12px 28px rgba(10, 40, 80, 0.08);
-      --maxw: 1200px;
+      --maxw: 1400px;
     }
 
     * { box-sizing: border-box; }
@@ -36,7 +36,7 @@
     a:hover { text-decoration: underline; }
 
     .container {
-      width: min(calc(100% - 40px), var(--maxw));
+      width: min(calc(100% - 96px), var(--maxw));
       margin: 0 auto;
     }
 
@@ -59,27 +59,22 @@
 
     .brand {
       display: flex;
-      flex-direction: column;
-      line-height: 1.15;
+      align-items: center;
+      line-height: 1;
+      flex-shrink: 0;
     }
 
-    .brand-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: 0.01em;
-    }
-
-    .brand-subtitle {
-      font-size: 0.92rem;
-      opacity: 0.95;
-      margin-top: 4px;
-      font-weight: 600;
+    .brand-logo {
+      display: block;
+      height: 58px;
+      width: auto;
+      object-fit: contain;
     }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 22px;
+      gap: 24px;
       align-items: center;
     }
 
@@ -104,207 +99,71 @@
       background: white;
     }
 
+
     .hero {
-      background: linear-gradient(180deg, #eef4fb 0%, #f8fbff 100%);
+      position: relative;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
       border-bottom: 1px solid var(--border);
+      background:
+        linear-gradient(90deg, rgba(244, 248, 252, 0.96) 0%, rgba(244, 248, 252, 0.86) 42%, rgba(244, 248, 252, 0.30) 74%, rgba(244, 248, 252, 0.08) 100%),
+        url("assets/shenyang-bg.jpeg") center center / cover no-repeat;
     }
 
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 32px;
-      align-items: center;
-      padding: 36px 0 42px;
+      position: relative;
+      z-index: 1;
+      padding: 88px 0 94px;
+      text-align: center;
+    }
+
+    .hero-content {
+      width: 100%;
+      margin: 0 auto;
     }
 
     .hero h1 {
-      margin: 0 0 12px;
+      margin: 0 auto 24px;
       color: #173a5f;
-      font-size: clamp(2.3rem, 4vw, 4rem);
+      font-size: clamp(2.2rem, 4.1vw, 4.6rem);
       line-height: 1.08;
-      letter-spacing: -0.02em;
-      max-width: 620px;
+      letter-spacing: -0.035em;
+      font-weight: 800;
+      max-width: 1280px;
+      text-wrap: balance;
+      text-shadow: 0 2px 16px rgba(255,255,255,0.65);
     }
 
-    .hero-tag {
+    .hero-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-info-item {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      color: var(--blue);
-      font-weight: 800;
-      font-size: 1.05rem;
-      margin: 6px 0 16px;
-    }
-
-    .hero-tag::before {
-      content: "";
-      width: 44px;
-      height: 2px;
-      background: #6ea5e8;
-      display: inline-block;
+      gap: 9px;
+      padding: 10px 16px;
       border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(216, 227, 239, 0.92);
+      box-shadow: 0 10px 24px rgba(10, 40, 80, 0.10);
+      color: #173a5f;
+      font-weight: 800;
+      font-size: 1rem;
+      backdrop-filter: blur(6px);
     }
 
-    .hero p {
-      font-size: 1.06rem;
-      color: #31475e;
-      max-width: 650px;
-      margin: 0;
+    .hero-info-icon {
+      color: var(--blue);
+      font-size: 1.1rem;
+      line-height: 1;
     }
-
-    .hero-visual {
-      min-height: 320px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 26px;
-      background: radial-gradient(circle at 20% 20%, rgba(74, 141, 230, 0.12), transparent 35%),
-                  linear-gradient(180deg, #f7fbff 0%, #eef5fd 100%);
-    }
-
-    .building, .marker, .tree, .person, .path-line {
-      position: absolute;
-    }
-
-    .building {
-      bottom: 72px;
-      width: 54px;
-      background: linear-gradient(180deg, #dbe8f8 0%, #cdddf1 100%);
-      border-radius: 8px 8px 0 0;
-      opacity: 0.95;
-    }
-
-    .building::before {
-      content: "";
-      position: absolute;
-      inset: 10px 12px 12px;
-      background: repeating-linear-gradient(
-        to right,
-        rgba(255,255,255,0.42) 0 5px,
-        transparent 5px 10px
-      );
-      opacity: 0.8;
-    }
-
-    .b1 { left: 70px; height: 120px; }
-    .b2 { left: 145px; height: 170px; }
-    .b3 { left: 235px; height: 250px; width: 72px; }
-    .b4 { left: 325px; height: 150px; }
-    .b5 { left: 405px; height: 110px; }
-
-    .ground {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 92px;
-      background: linear-gradient(180deg, rgba(198,220,245,0.15), rgba(199,220,245,0.35));
-      border-top: 1px solid rgba(171, 198, 228, 0.3);
-    }
-
-    .tree {
-      bottom: 63px;
-      width: 16px;
-      height: 34px;
-      background: #c9d9ee;
-      border-radius: 12px 12px 4px 4px;
-    }
-
-    .tree::after {
-      content: "";
-      position: absolute;
-      left: 7px;
-      bottom: -10px;
-      width: 2px;
-      height: 12px;
-      background: #b7c8de;
-    }
-
-    .t1 { left: 110px; }
-    .t2 { left: 190px; }
-    .t3 { left: 280px; }
-    .t4 { left: 365px; }
-    .t5 { left: 455px; }
-
-    .person {
-      bottom: 52px;
-      width: 10px;
-      height: 24px;
-      background: #9fb9df;
-      border-radius: 5px;
-      opacity: 0.95;
-      transform: skew(-8deg);
-    }
-
-    .person::before {
-      content: "";
-      position: absolute;
-      top: -8px;
-      left: 1px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #a7c0e3;
-    }
-
-    .p1 { left: 82px; }
-    .p2 { left: 218px; }
-    .p3 { left: 338px; }
-    .p4 { left: 488px; }
-
-    .path-line {
-      border: 2px dashed #a9c7ef;
-      border-color: #a9c7ef transparent transparent transparent;
-      border-radius: 50%/100% 100% 0 0;
-      opacity: 0.9;
-    }
-
-    .path1 {
-      width: 220px;
-      height: 90px;
-      left: 48px;
-      bottom: 30px;
-      transform: rotate(-8deg);
-    }
-
-    .path2 {
-      width: 290px;
-      height: 118px;
-      left: 190px;
-      bottom: 32px;
-      transform: rotate(6deg);
-    }
-
-    .path3 {
-      width: 180px;
-      height: 76px;
-      left: 380px;
-      bottom: 56px;
-      transform: rotate(-10deg);
-    }
-
-    .marker {
-      width: 26px;
-      height: 26px;
-      background: var(--blue);
-      border-radius: 50% 50% 50% 0;
-      transform: rotate(-45deg);
-      box-shadow: 0 10px 18px rgba(42, 115, 197, 0.25);
-    }
-
-    .marker::after {
-      content: "";
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      left: 8px;
-      top: 8px;
-      background: white;
-      border-radius: 50%;
-    }
-
-    .m1 { left: 160px; top: 70px; }
-    .m2 { left: 304px; top: 36px; }
-    .m3 { left: 520px; top: 116px; }
 
     .section {
       padding: 34px 0 10px;
@@ -336,6 +195,52 @@
       font-size: 1.02rem;
       margin: 0 0 18px;
       max-width: 1000px;
+    }
+
+    .overview-section {
+      padding-top: 46px;
+      padding-bottom: 26px;
+    }
+
+    .overview-block {
+      max-width: 1060px;
+    }
+
+    .overview-title {
+      margin-bottom: 14px;
+    }
+
+    .overview-text {
+      color: #52677c;
+      font-size: 1.18rem;
+      line-height: 1.85;
+      max-width: 980px;
+      margin: 0 0 18px;
+    }
+
+    .overview-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .overview-tags span {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(233, 241, 251, 0.78);
+      color: #24588f;
+      border: 1px solid #d7e5f4;
+      font-size: 0.84rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .overview-divider {
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
     }
 
     .divider {
@@ -412,16 +317,66 @@
       margin-top: 10px;
     }
 
-    .organizer-line {
-      font-size: 1.03rem;
-      font-weight: 700;
-      color: #24384f;
-      line-height: 1.85;
+    .organizer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 20px;
     }
 
-    .org-aff {
-      margin-top: 12px;
+    .organizer-card {
+      display: block;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px 20px 28px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .organizer-card:hover {
+      text-decoration: none;
+    }
+
+    .organizer-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(10, 40, 80, 0.12);
+    }
+
+    .organizer-photo {
+      width: 190px;
+      height: 190px;
+      border-radius: 18px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 18px;
+      border: 1px solid #e2ebf5;
+      background: #eef5fd;
+    }
+
+    .organizer-card h3 {
+      margin: 0;
+      color: #173a5f;
+      font-size: 1.18rem;
+      line-height: 1.25;
+    }
+
+    .org-role {
+      margin: 7px 0 4px;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 0.94rem;
+      line-height: 1.35;
+    }
+
+    .org-affiliation {
+      margin: 0;
       color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.45;
     }
 
     .contact-box {
@@ -439,19 +394,30 @@
     }
 
     @media (max-width: 980px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
+      .organizer-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .hero-visual {
-        min-height: 260px;
+      .hero {
+        min-height: 460px;
+        background-position: center right;
+      }
+      .hero h1 {
+        white-space: normal;
+        max-width: 960px;
       }
     }
 
     @media (max-width: 760px) {
+      .organizer-grid {
+        grid-template-columns: 1fr;
+      }
       .topbar-inner {
         flex-direction: column;
         align-items: flex-start;
         padding: 14px 0;
+      }
+      .brand-logo {
+        height: 52px;
       }
       .nav-links {
         gap: 14px;
@@ -461,7 +427,13 @@
         bottom: -4px;
       }
       .hero-inner {
-        padding-top: 26px;
+        padding: 58px 0 64px;
+      }
+      .hero {
+        min-height: 420px;
+      }
+      .hero h1 {
+        font-size: clamp(2rem, 10vw, 3.4rem);
       }
       .container {
         width: min(calc(100% - 24px), var(--maxw));
@@ -469,21 +441,23 @@
       .card {
         padding: 20px;
       }
+      .overview-text {
+        font-size: 1.02rem;
+        line-height: 1.75;
+      }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand">
-        <div class="brand-title">HDAI 2026</div>
-        <div class="brand-subtitle">Workshop at ICDM 2026</div>
-      </div>
+      <a class="brand" href="#home" aria-label="ICDM 2026 Home">
+        <img class="brand-logo" src="assets/icdm2026-logo.png" alt="ICDM 2026 Logo">
+      </a>
       <nav class="nav-links">
         <a class="active" href="#home">Home</a>
         <a href="#cfp">Call for Papers</a>
         <a href="#dates">Important Dates</a>
-        <a href="#program">Program</a>
         <a href="#organizers">Organizers</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -492,55 +466,37 @@
 
   <section class="hero" id="home">
     <div class="container hero-inner">
-      <div>
-        <h1>Human Dynamics and<br>Mobility Analytics in<br>Agentic AI Era</h1>
-        <div class="hero-tag">A Half-Day Workshop at ICDM 2026</div>
-        <p>
-          HDAI 2026 aims to bring together researchers and practitioners from data mining,
-          machine learning, urban computing, and geospatial analytics to discuss recent advances,
-          open challenges, and real-world applications for human dynamics and mobility analytics
-          in the era of agentic AI.
-        </p>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="building b1"></div>
-        <div class="building b2"></div>
-        <div class="building b3"></div>
-        <div class="building b4"></div>
-        <div class="building b5"></div>
-        <div class="tree t1"></div>
-        <div class="tree t2"></div>
-        <div class="tree t3"></div>
-        <div class="tree t4"></div>
-        <div class="tree t5"></div>
-        <div class="person p1"></div>
-        <div class="person p2"></div>
-        <div class="person p3"></div>
-        <div class="person p4"></div>
-        <div class="path-line path1"></div>
-        <div class="path-line path2"></div>
-        <div class="path-line path3"></div>
-        <div class="marker m1"></div>
-        <div class="marker m2"></div>
-        <div class="marker m3"></div>
-        <div class="ground"></div>
+      <div class="hero-content">
+        <h1>Human Dynamics and Mobility Analytics in Agentic AI Era</h1>
+        <div class="hero-info" aria-label="Workshop information">
+          <div class="hero-info-item"><span class="hero-info-icon">🗓️</span><span>A Half-Day Workshop at ICDM 2026</span></div>
+          <div class="hero-info-item"><span class="hero-info-icon">📍</span><span>Shenyang, China</span></div>
+        </div>
       </div>
     </div>
   </section>
 
   <main class="container">
-    <section class="section" id="overview">
-      <div class="icon-title">
-        <div class="icon">📖</div>
-        <h2 class="section-title">Overview</h2>
+    <section class="section overview-section" id="overview">
+      <div class="overview-block">
+        <div class="icon-title overview-title">
+          <div class="icon">📖</div>
+          <h2 class="section-title">Overview</h2>
+        </div>
+        <p class="overview-text">
+          HDAI 2026 provides a focused forum for researchers and practitioners working at the intersection of human dynamics,
+          mobility analytics, and agentic AI. The workshop explores how large models, autonomous agents, and human-centered data
+          intelligence can support modeling, reasoning, forecasting, and decision-making across physical and digital environments.
+        </p>
+        <div class="overview-tags" aria-label="Workshop topics">
+          <span>Human Mobility</span>
+          <span>Agentic AI</span>
+          <span>Urban Computing</span>
+          <span>Behavior Analytics</span>
+          <span>GeoAI</span>
+        </div>
+        <div class="overview-divider"></div>
       </div>
-      <p class="section-lead">
-        Human mobility data, together with broader human behavioral data generated from online platforms and human–AI interactions,
-        provide rich signals for understanding human dynamics in physical and digital environments. Recent advances in large models and
-        agentic AI create new opportunities for modeling, reasoning, and decision-making over complex human-centered data. HDAI 2026
-        focuses on this intersection and aims to build a focused forum for recent advances, open challenges, and real-world applications.
-      </p>
-      <div class="divider"></div>
     </section>
 
     <section class="section" id="cfp">
@@ -610,35 +566,78 @@
       <div class="muted-note">All deadlines are at 11:59PM AOE (Anywhere on Earth).</div>
     </section>
 
-    <section class="section" id="program">
-      <div class="icon-title">
-        <div class="icon">👥</div>
-        <h2 class="section-title">Program</h2>
-      </div>
-      <p class="section-lead">
-        <!-- HDAI 2026 is a half-day workshop. The program is expected to include invited keynote talks from leading researchers, paper presentation sessions,
-        and a panel discussion focusing on emerging challenges and future research directions in human dynamics data intelligence and agentic AI. -->
-        TBD
-      </p>
-      <div class="divider"></div>
-    </section>
-
     <section class="section" id="organizers">
       <div class="icon-title">
         <div class="icon">👥</div>
         <h2 class="section-title">Organizers</h2>
       </div>
-      <div class="contact-box">
-        <div class="organizer-line">
-          Liwei Deng<sup>1</sup>, Jiaxing Shen<sup>2</sup>, Hao Miao<sup>3</sup>, Yu Yang<sup>4</sup>, Yan Zhao<sup>5</sup>, Tianfu Wang<sup>6</sup>, Elliott Wen<sup>7</sup>,
-          Huan Li<sup>8</sup>, Xin Li<sup>9</sup>, Fuliang Li<sup>10</sup>, Kai Zheng<sup>5</sup>
-        </div>
-        <div class="org-aff">
-          <sup>1</sup> Aalborg University, <sup>2</sup> Lingnan University, <sup>3</sup> The Hong Kong Polytechnic University,
-          <sup>4</sup> The Education University of Hong Kong, <sup>5</sup> University of Electronic Science and Technology of China,
-          <sup>6</sup> The Hong Kong University of Science and Technology (Guangzhou), <sup>7</sup> University of Auckland,
-          <sup>8</sup> Zhejiang University, <sup>9</sup> University of Science and Technology of China, <sup>10</sup> Northeastern University
-        </div>
+      <div class="organizer-grid">
+        <a class="organizer-card" href="https://liweideng0830.github.io" target="_blank" rel="noopener" aria-label="Liwei Deng homepage">
+          <img class="organizer-photo" src="assets/organizers/liwei-deng.jpg" alt="Liwei Deng photo placeholder">
+          <h3>Liwei Deng</h3>
+          <p class="org-role">Postdoc</p>
+          <p class="org-affiliation">Aalborg University</p>
+        </a>
+        <a class="organizer-card" href="https://shenjiaxing.github.io" target="_blank" rel="noopener" aria-label="Jiaxing Shen homepage">
+          <img class="organizer-photo" src="assets/organizers/jiaxing-shen.jpg" alt="Jiaxing Shen photo placeholder">
+          <h3>Jiaxing Shen</h3>
+          <p class="org-role">Assistant Professor</p>
+          <p class="org-affiliation">Lingnan University</p>
+        </a>
+        <a class="organizer-card" href="https://haomiao.website" target="_blank" rel="noopener" aria-label="Hao Miao homepage">
+          <img class="organizer-photo" src="assets/organizers/hao-miao.jpg" alt="Hao Miao photo placeholder">
+          <h3>Hao Miao</h3>
+          <p class="org-role">Research Assistant Professor</p>
+          <p class="org-affiliation">The Hong Kong Polytechnic University</p>
+        </a>
+        <a class="organizer-card" href="https://scholar.google.com/citations?hl=zh-CN&user=Gk07OsAAAAAJ" target="_blank" rel="noopener" aria-label="Yu Yang homepage">
+          <img class="organizer-photo" src="assets/organizers/yu-yang.jpg" alt="Yu Yang photo placeholder">
+          <h3>Yu Yang</h3>
+          <p class="org-role">Assistant Professor</p>
+          <p class="org-affiliation">The Education University of Hong Kong</p>
+        </a>
+        <a class="organizer-card" href="https://www.zhao-yan.com" target="_blank" rel="noopener" aria-label="Yan Zhao homepage">
+          <img class="organizer-photo" src="assets/organizers/yan-zhao.jpg" alt="Yan Zhao photo placeholder">
+          <h3>Yan Zhao</h3>
+          <p class="org-role">Professor</p>
+          <p class="org-affiliation">University of Electronic Science and Technology of China</p>
+        </a>
+        <a class="organizer-card" href="#" target="_blank" rel="noopener" aria-label="Tianfu Wang homepage">
+          <img class="organizer-photo" src="assets/organizers/tianfu-wang.jpg" alt="Tianfu Wang photo placeholder">
+          <h3>Tianfu Wang</h3>
+          <p class="org-role">Ph.D Candidate</p>
+          <p class="org-affiliation">The Hong Kong University of Science and Technology (Guangzhou)</p>
+        </a>
+        <a class="organizer-card" href="https://tianfuwang.tech" target="_blank" rel="noopener" aria-label="Elliott Wen homepage">
+          <img class="organizer-photo" src="assets/organizers/elliott-wen.jpg" alt="Elliott Wen photo placeholder">
+          <h3>Elliott Wen</h3>
+          <p class="org-role"> Senior Lecturer</p>
+          <p class="org-affiliation">University of Auckland</p>
+        </a>
+        <a class="organizer-card" href="https://person.zju.edu.cn/en/lihuan" target="_blank" rel="noopener" aria-label="Huan Li homepage">
+          <img class="organizer-photo" src="assets/organizers/huan-li.jpg" alt="Huan Li photo placeholder">
+          <h3>Huan Li</h3>
+          <p class="org-role">Professor</p>
+          <p class="org-affiliation">Zhejiang University</p>
+        </a>
+        <a class="organizer-card" href="https://scholar.google.com/citations?user=fcQ1v0AAAAAJ&hl=zh-CN&oi=ao" target="_blank" rel="noopener" aria-label="Xin Li homepage">
+          <img class="organizer-photo" src="assets/organizers/xin-li.jpg" alt="Xin Li photo placeholder">
+          <h3>Xin Li</h3>
+          <p class="org-role">Researcher</p>
+          <p class="org-affiliation">University of Science and Technology of China</p>
+        </a>
+        <a class="organizer-card" href="https://fuliang-li.github.io" target="_blank" rel="noopener" aria-label="Fuliang Li homepage">
+          <img class="organizer-photo" src="assets/organizers/fuliang-li.jpg" alt="Fuliang Li photo placeholder">
+          <h3>Fuliang Li</h3>
+          <p class="org-role">Professor</p>
+          <p class="org-affiliation">Northeastern University</p>
+        </a>
+        <a class="organizer-card" href="https://zheng-kai.com" target="_blank" rel="noopener" aria-label="Kai Zheng homepage">
+          <img class="organizer-photo" src="assets/organizers/kai-zheng.jpg" alt="Kai Zheng photo placeholder">
+          <h3>Kai Zheng</h3>
+          <p class="org-role">Professor</p>
+          <p class="org-affiliation">University of Electronic Science and Technology of China</p>
+        </a>
       </div>
     </section>
 
