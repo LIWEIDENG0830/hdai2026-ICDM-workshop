@@ -379,6 +379,44 @@
       line-height: 1.45;
     }
 
+
+    .sponsor-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 20px;
+    }
+
+    .sponsor-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 150px;
+      width: min(100%, 360px);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 34px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sponsor-card:hover {
+      text-decoration: none;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(10, 40, 80, 0.12);
+    }
+
+    .sponsor-logo {
+      display: block;
+      max-width: 260px;
+      max-height: 90px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
     .contact-box {
       background: white;
       border: 1px solid var(--border);
@@ -459,6 +497,7 @@
         <a href="#cfp">Call for Papers</a>
         <a href="#dates">Important Dates</a>
         <a href="#organizers">Organizers</a>
+        <a href="#sponsor">Sponsor</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -505,7 +544,7 @@
         <h2 class="section-title">Call for Papers</h2>
       </div>
       <p class="section-lead">
-        We invite original research contributions on human mobility, broader human dynamics, and intelligent analysis systems in the era of agentic AI.
+        We invite original research contributions on human mobility, broader human dynamics, and intelligent analysis systems in the era of agentic AI. Selected high-quality papers will be invited to submit extended versions to the SCIE-indexed journal <em>Frontiers of Computer Science</em> (Q1, CCF B), subject to the journal's review process.
       </p>
       <div class="stack">
         <div class="card subsection">
@@ -637,6 +676,19 @@
           <h3>Kai Zheng</h3>
           <p class="org-role">Professor</p>
           <p class="org-affiliation">University of Electronic Science and Technology of China</p>
+        </a>
+      </div>
+    </section>
+
+
+    <section class="section" id="sponsor">
+      <div class="icon-title">
+        <div class="icon">🤝</div>
+        <h2 class="section-title">Sponsor</h2>
+      </div>
+      <div class="sponsor-grid">
+        <a class="sponsor-card" href="https://journal.hep.com.cn/fcs" target="_blank" rel="noopener" aria-label="Frontiers of Computer Science website">
+          <img class="sponsor-logo" src="assets/fcs-logo.png" alt="Frontiers of Computer Science Logo">
         </a>
       </div>
     </section>
