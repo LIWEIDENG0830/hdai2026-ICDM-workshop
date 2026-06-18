@@ -417,6 +417,46 @@
       object-fit: contain;
     }
 
+
+
+    .journal-highlight {
+      margin: 20px 0 10px;
+      padding: 18px 24px;
+      border-left: 6px solid var(--blue);
+      background: #eef6ff;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy-2);
+      box-shadow: 0 4px 12px rgba(42, 115, 197, 0.08);
+      max-width: 1000px;
+    }
+
+    .journal-highlight strong {
+      color: #0c345a;
+      font-weight: 800;
+    }
+
+    .poster-container {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .poster-image {
+      width: 100%;
+      max-width: 560px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background: white;
+    }
+
+    .poster-image:hover {
+      transform: scale(1.01);
+      box-shadow: 0 16px 34px rgba(10, 40, 80, 0.12);
+    }
+
     .contact-box {
       background: white;
       border: 1px solid var(--border);
@@ -497,6 +537,7 @@
         <a href="#cfp">Call for Papers</a>
         <a href="#dates">Important Dates</a>
         <a href="#organizers">Organizers</a>
+        <a href="#poster">Poster</a>
         <a href="#sponsor">Sponsor</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -544,8 +585,13 @@
         <h2 class="section-title">Call for Papers</h2>
       </div>
       <p class="section-lead">
-        We invite original research contributions on human mobility, broader human dynamics, and intelligent analysis systems in the era of agentic AI. Selected high-quality papers will be invited to submit extended versions to the SCIE-indexed journal <em>Frontiers of Computer Science</em> (Q1, CCF B), subject to the journal's review process.
+        We invite original research contributions on human mobility, broader human dynamics, and intelligent analysis systems in the era of agentic AI.
       </p>
+      <div class="journal-highlight">
+        ⭐ Selected high-quality papers will be invited to submit extended versions to the
+        <strong>SCIE-indexed journal <em>Frontiers of Computer Science</em> (Q1, CCF B)</strong>,
+        subject to the journal's review process.
+      </div>
       <div class="stack">
         <div class="card subsection">
           <h3 class="subsection-title">Objectives and Goals</h3>
@@ -680,6 +726,18 @@
       </div>
     </section>
 
+
+    <section class="section" id="poster">
+      <div class="icon-title">
+        <div class="icon">📌</div>
+        <h2 class="section-title">Workshop Poster</h2>
+      </div>
+      <div class="poster-container">
+        <a href="assets/HDAI2026_Poster.png" target="_blank" rel="noopener" aria-label="Open HDAI 2026 poster">
+          <img class="poster-image" src="assets/HDAI2026_Poster.png" alt="HDAI 2026 Workshop Poster">
+        </a>
+      </div>
+    </section>
 
     <section class="section" id="sponsor">
       <div class="icon-title">
