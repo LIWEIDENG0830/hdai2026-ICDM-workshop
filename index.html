@@ -437,6 +437,31 @@
       font-weight: 800;
     }
 
+    .submission-action {
+      margin-top: 22px;
+    }
+
+    .submission-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(17, 122, 121, 0.22);
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .submission-button:hover,
+    .submission-button:focus-visible {
+      background: var(--navy-2);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(17, 122, 121, 0.28);
+    }
+
     .poster-container {
       text-align: left;
       margin-top: 20px;
@@ -623,16 +648,21 @@
         <div class="card subsection">
           <h3 class="subsection-title">Submission Guidelines</h3>
           <p>
-            Authors are invited to submit original, unpublished research papers. All submissions will be peer-reviewed. The workshop submission format is intended
-            to follow the usual ICDM workshop practice; please update this section once the official ICDM 2026 workshop instructions are released.
+            Authors are invited to submit original, unpublished research papers. All submissions will undergo peer review following a
+            <strong>single-blind review process</strong>: author names and affiliations should be included in the manuscript.
           </p>
           <ul>
-            <li><strong>Paper length:</strong> up to 10 pages for full papers, including the references and any possible appendices.</li>
+            <li><strong>Full papers:</strong> up to 10 pages, including references.</li>
+            <li><strong>Short papers:</strong> up to 4 pages, including references.</li>
             <li><strong>Formatting:</strong> manuscripts should use the official IEEE conference template in two-column format (https://www.ieee.org/conferences/publishing/templates.html).</li>
+            <li><strong>Review policy:</strong> submissions follow a single-blind review process; authors do not need to anonymize their manuscripts.</li>
             <li><strong>Submission file:</strong> papers should be submitted as a PDF file through the official workshop submission system.</li>
             <li><strong>Presentation:</strong> at least one author of each accepted paper is expected to register and present the work at the workshop.</li>
             <li><strong>Final policy:</strong> the definitive page limits, template details, and proceedings policy should follow the official ICDM 2026 workshop announcement.</li>
           </ul>
+          <div class="submission-action">
+            <a class="submission-button" href="https://wi-lab.com/cyberchair/2026/icdm26/scripts/submit.php?subarea=S06&amp;undisplay_detail=1&amp;wh=/cyberchair/2026/icdm26/scripts/ws_submit.php" target="_blank" rel="noopener noreferrer">Submit Your Paper ↗</a>
+          </div>
         </div>
       </div>
     </section>
