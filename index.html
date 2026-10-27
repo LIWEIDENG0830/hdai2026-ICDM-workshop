@@ -311,6 +311,39 @@
       font-weight: 700;
     }
 
+    .program-table {
+      margin-top: 20px;
+    }
+
+    .program-table td:first-child {
+      width: 145px;
+      white-space: nowrap;
+      color: var(--navy);
+      font-weight: 800;
+      vertical-align: top;
+    }
+
+    .program-table td:last-child {
+      width: auto;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .program-title {
+      display: block;
+      color: var(--navy-2);
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .program-meta {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
     .muted-note {
       color: var(--muted);
       font-size: 0.95rem;
@@ -560,6 +593,7 @@
       <nav class="nav-links">
         <a class="active" href="#home">Home</a>
         <a href="#cfp">Call for Papers</a>
+        <a href="#schedule">Schedule</a>
         <a href="#dates">Important Dates</a>
         <a href="#organizers">Organizers</a>
         <a href="#poster">Poster</a>
@@ -574,8 +608,8 @@
       <div class="hero-content">
         <h1>Human Dynamics and Mobility Analytics in Agentic AI Era</h1>
         <div class="hero-info" aria-label="Workshop information">
-          <div class="hero-info-item"><span class="hero-info-icon">🗓️</span><span>A Half-Day Workshop at ICDM 2026</span></div>
-          <div class="hero-info-item"><span class="hero-info-icon">📍</span><span>Shenyang, China</span></div>
+          <div class="hero-info-item"><span class="hero-info-icon">🗓️</span><span>Thursday, November 12, 2026 · 13:00–15:30</span></div>
+          <div class="hero-info-item"><span class="hero-info-icon">📍</span><span>Venue: Berlin 2 · Shenyang, China</span></div>
         </div>
       </div>
     </div>
@@ -667,6 +701,63 @@
       </div>
     </section>
 
+    <section class="section" id="schedule">
+      <div class="icon-title">
+        <div class="icon">🕐</div>
+        <h2 class="section-title">Workshop Schedule</h2>
+      </div>
+      <p class="section-lead">
+        HDAI 2026 is an afternoon workshop on the ICDM 2026 Workshop Day. All sessions will take place in the Berlin 2 conference room.
+      </p>
+      <table class="date-table program-table" aria-label="HDAI 2026 workshop program">
+        <tr>
+          <td>13:00–13:05</td>
+          <td><span class="program-title">Welcome</span></td>
+        </tr>
+        <tr>
+          <td>13:05–14:05</td>
+          <td>
+            <span class="program-title">Keynote: Towards Reliable Autonomous Graph Data Analysis with YiGraph</span>
+            <span class="program-meta"><a href="https://wangqge.github.io" target="_blank" rel="noopener noreferrer">Qiange Wang</a>, Professor, School of Computer Science and Engineering, Northeastern University · Talk and Q&amp;A</span>
+          </td>
+        </tr>
+        <tr>
+          <td>14:05–14:20</td>
+          <td>
+            <span class="program-title">Explainable Early Depression Risk Screening from Facial Videos With Matrix-Preserving Region Graphs and Weakly Supervised Temporal Evidence</span>
+          </td>
+        </tr>
+        <tr>
+          <td>14:20–14:35</td>
+          <td>
+            <span class="program-title">Regression-Aware Adaptive Evidence Aggregation for Video-Based Depression Assessment</span>
+          </td>
+        </tr>
+        <tr>
+          <td>14:35–14:50</td>
+          <td>
+            <span class="program-title">When Persona Prompts Fail: Task-State Control for Improving Reasoning Task Outcomes</span>
+          </td>
+        </tr>
+        <tr>
+          <td>14:50–15:20</td>
+          <td>
+            <span class="program-title">Invited Talk: Toward Human-Centered Agentic AI: Empowering Human Growth and Creativity</span>
+            <span class="program-meta"><a href="https://tianfu.wang" target="_blank" rel="noopener noreferrer">Tianfu Wang</a>, Ph.D. Candidate, The Hong Kong University of Science and Technology (Guangzhou)</span>
+          </td>
+        </tr>
+        <tr>
+          <td>15:20–15:25</td>
+          <td><span class="program-title">Discussion and Q&amp;A</span></td>
+        </tr>
+        <tr>
+          <td>15:25–15:30</td>
+          <td><span class="program-title">Conclusion</span></td>
+        </tr>
+      </table>
+      <div class="muted-note">Thursday, November 12, 2026 · 13:00–15:30 · Venue: Berlin 2</div>
+    </section>
+
     <section class="section" id="dates">
       <div class="icon-title">
         <div class="icon">🗓️</div>
@@ -676,7 +767,7 @@
         <tr><td>Paper Submission Due</td><td>August 20, 2026</td></tr>
         <tr><td>Notification of Acceptance</td><td>September 18, 2026</td></tr>
         <tr><td>Camera-Ready Due</td><td>October 5, 2026</td></tr>
-        <tr><td>Workshop Date</td><td>TBD (ICDM 2026)</td></tr>
+        <tr><td>Workshop Date</td><td>November 12, 2026</td></tr>
       </table>
       <div class="muted-note">All deadlines are at 11:59PM AOE (Anywhere on Earth).</div>
     </section>
@@ -717,13 +808,13 @@
           <p class="org-role">Professor</p>
           <p class="org-affiliation">University of Electronic Science and Technology of China</p>
         </a>
-        <a class="organizer-card" href="#" target="_blank" rel="noopener" aria-label="Tianfu Wang homepage">
+        <a class="organizer-card" href="https://tianfu.wang" target="_blank" rel="noopener noreferrer" aria-label="Tianfu Wang homepage">
           <img class="organizer-photo" src="assets/organizers/tianfu-wang.jpg" alt="Tianfu Wang photo placeholder">
           <h3>Tianfu Wang</h3>
           <p class="org-role">Ph.D Candidate</p>
           <p class="org-affiliation">The Hong Kong University of Science and Technology (Guangzhou)</p>
         </a>
-        <a class="organizer-card" href="https://tianfuwang.tech" target="_blank" rel="noopener" aria-label="Elliott Wen homepage">
+        <a class="organizer-card" href="https://www.elliottwen.info/" target="_blank" rel="noopener noreferrer" aria-label="Elliott Wen homepage">
           <img class="organizer-photo" src="assets/organizers/elliott-wen.jpg" alt="Elliott Wen photo placeholder">
           <h3>Elliott Wen</h3>
           <p class="org-role"> Senior Lecturer</p>
